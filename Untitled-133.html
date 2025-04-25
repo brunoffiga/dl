@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #09152B;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .slide {
+            width: 950px;
+            height: 540px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .slide1 {
+            width: 950px;
+            height: 580px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .slide12 {
+            width: 950px;
+            height: 620px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .slide2 {
+            width: 950px;
+            height: 720px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .title-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .title-slide h1 {
+            color: #b25e04;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .title-slide h2 {
+            color: #09152B;
+            font-size: 24px;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #b25e04;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #09152B;
+            font-size: 24px;
+            margin-top: 0;
+        }
+        
+        .two-column {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .column {
+            width: 48%;
+        }
+        
+        .highlight-box {
+            background-color: rgba(178, 94, 4, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .data-point {
+            font-size: 42px;
+            font-weight: bold;
+            color: #b25e04;
+            margin: 0;
+        }
+        
+        .data-label {
+            font-size: 16px;
+            color: #09152B;
+            margin: 0;
+        }
+        
+        .icon-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .icon {
+            background-color: #09152B;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            height: 360px;
+        }
+        
+        .swot-box {
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .strengths {
+            background-color: rgba(178, 94, 4, 0.1);
+        }
+        
+        .weaknesses {
+            background-color: rgba(9, 21, 43, 0.1);
+        }
+        
+        .opportunities {
+            background-color: rgba(178, 94, 4, 0.1);
+        }
+        
+        .threats {
+            background-color: rgba(9, 21, 43, 0.1);
+        }
+        
+        .swot-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .swot-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .swot-box li {
+            margin-bottom: 5px;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #b25e04;
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            position: relative;
+            z-index: 2;
+            width: 22%;
+            text-align: center;
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #b25e04;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            position: relative;
+            top: 20px;
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .timeline-desc {
+            font-size: 12px;
+            color: #09152B;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            right: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #09152B;
+        }
+        
+        .segment-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .segment-title {
+            color: #b25e04;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .segment-desc {
+            margin-bottom: 15px;
+        }
+        
+        .feature-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 30px 0;
+            padding-left: 20px;
+            border-left: 3px solid #b25e04;
+        }
+        
+        .metrics-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .metric-box {
+            text-align: center;
+            width: 30%;
+        }
+        
+        .big-number {
+            font-size: 42px;
+            font-weight: bold;
+            color: #b25e04;
+            margin: 0;
+        }
+        
+        .roadmap {
+            position: relative;
+            margin-top: 40px;
+        }
+        
+        .roadmap-line {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #b25e04;
+            z-index: 1;
+        }
+        
+        .roadmap-items {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .roadmap-item {
+            text-align: center;
+            width: 22%;
+        }
+        
+        .roadmap-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #b25e04;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            position: relative;
+            top: 30px;
+        }
+        
+        .roadmap-title {
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 5px;
+        }
+        
+        .roadmap-desc {
+            font-size: 14px;
+            color: #09152B;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Capa -->
+    <div class="slide">
+        <div class="title-slide">
+            <h1>DL Projetos e Construções</h1>
+            <h2>Engenharia inteligente com execução impecável</h2>
+            <p style="margin-top: 60px;">Abril 2025</p>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Quem Somos -->
+    <div class="slide">
+        <h1>Conectando inovação e engenharia desde 2018</h1>
+        <div class="two-column">
+            <div class="column">
+                <div class="highlight-box">
+                    <p class="data-point">6+ anos</p>
+                    <p class="data-label">de experiência na construção civil</p>
+                </div>
+                <div class="highlight-box">
+                    <p class="data-point">40+</p>
+                    <p class="data-label">CNAEs e certificações técnicas</p>
+                </div>
+                <div class="highlight-box">
+                    <p class="data-point">30+</p>
+                    <p class="data-label">projetos bem-sucedidos</p>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Missão</h2>
+                <p>Entregar o melhor custo-benefício, aliado à acessibilidade e à sustentabilidade aos nossos clientes.</p>
+                
+                <h2>Visão</h2>
+                <p>Ser referência em obras e projetos, transcendendo as expectativas dos nossos clientes.</p>
+                
+                <h2>Valores</h2>
+                <p>Respeito, ética, sintonia com colaboradores e clientes, e compromisso com a inovação e sustentabilidade.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Nosso Modelo -->
+    <div class="slide1">
+        <h1>Startups em infraestrutura urbana</h1>
+        <div class="icon-box">
+            <div class="icon">1</div>
+            <div>
+                <h2>Projetos civis e reformas completos</h2>
+                <p>Soluções completas de engenharia para edificações públicas e privadas</p>
+            </div>
+        </div>
+        <div class="icon-box">
+            <div class="icon">2</div>
+            <div>
+                <h2>Manutenção modular "pay-per-use"</h2>
+                <p>Equipe multidisciplinar para estrutura, pintura, elétrica, hidráulica e paisagismo</p>
+            </div>
+        </div>
+        <div class="icon-box">
+            <div class="icon">3</div>
+            <div>
+                <h2>Modernização com tecnologia</h2>
+                <p>Integração de energia solar, CFTV, sensores IoT e sistemas inteligentes</p>
+            </div>
+        </div>
+        <div class="icon-box">
+            <div class="icon">4</div>
+            <div>
+                <h2>Plataforma digital integrada</h2>
+                <p>Orçamentos rápidos, acompanhamento em tempo real e gestão inteligente</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Segmentos-alvo -->
+    <div class="slide2">
+        <h1>Segmentos-alvo estratégicos</h1>
+        <div class="segment-card">
+            <h3 class="segment-title">Instituições Públicas</h3>
+            <p class="segment-desc">Escolas, CEUs, CEIs e órgãos governamentais que necessitam de reformas e manutenções regulares.</p>
+            <ul class="feature-list">
+                <li>Conformidade com todas as regulamentações do setor público</li>
+                <li>Expertise em processos de licitação e editais</li>
+                <li>Documentação rigorosa e rastreabilidade completa</li>
+            </ul>
+        </div>
+        <div class="segment-card">
+            <h3 class="segment-title">Gestoras de Condomínios</h3>
+            <p class="segment-desc">Administradoras que buscam soluções escaláveis para manutenção predial eficiente.</p>
+            <ul class="feature-list">
+                <li>Planos flexíveis adaptados às necessidades de cada condomínio</li>
+                <li>Resposta rápida e previsibilidade orçamentária</li>
+                <li>Relatórios detalhados para prestação de contas aos condôminos</li>
+            </ul>
+        </div>
+        <div class="segment-card">
+            <h3 class="segment-title">Empresas com múltiplas instalações</h3>
+            <p class="segment-desc">Redes comerciais e corporações que necessitam de manutenção padronizada e eficiente.</p>
+            <ul class="feature-list">
+                <li>Gestão centralizada com visão consolidada</li>
+                <li>Minimização de interrupções nas operações</li>
+                <li>Implementação de soluções de eficiência e sustentabilidade</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Proposta de Valor -->
+    <div class="slide">
+        <h1>Nossa proposta de valor</h1>
+        <div class="two-column">
+            <div class="column">
+                <div class="icon-box">
+                    <div class="icon">A</div>
+                    <div>
+                        <h2>Agilidade e transparência</h2>
+                        <p>Orçamentos em 24h e dashboard de acompanhamento em tempo real</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">F</div>
+                    <div>
+                        <h2>Flexibilidade contratual</h2>
+                        <p>Serviços modulares e planos "pay-per-use" adaptados à necessidade</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="icon-box">
+                    <div class="icon">I</div>
+                    <div>
+                        <h2>Inovação e sustentabilidade</h2>
+                        <p>BIM, IoT, energia renovável e práticas verdes integradas</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">C</div>
+                    <div>
+                        <h2>Conformidade e credibilidade</h2>
+                        <p>40+ CNAEs e todos os credenciamentos necessários para obras públicas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quote">
+            "Engenharia inteligente com execução impecável: projetos e manutenção que integram expertise técnica, tecnologia e sustentabilidade para infraestruturas mais eficientes e duradouras."
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Modelo de Assinatura -->
+    <div class="slide2">
+        <h1>Manutenção preditiva como serviço</h1>
+        <div class="two-column">
+            <div class="column">
+                <h2>Pacotes de Manutenção Recorrente</h2>
+                <div class="segment-card">
+                    <h3 class="segment-title">Básico</h3>
+                    <ul class="feature-list">
+                        <li>Inspeções mensais preventivas</li>
+                        <li>Manutenção corretiva sob demanda</li>
+                        <li>Dashboard de acompanhamento</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <h3 class="segment-title">Avançado</h3>
+                    <ul class="feature-list">
+                        <li>Tudo do Básico +</li>
+                        <li>Manutenção preditiva trimestral</li>
+                        <li>Pequenos reparos inclusos</li>
+                        <li>Relatórios detalhados de economia</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <h3 class="segment-title">Premium</h3>
+                    <ul class="feature-list">
+                        <li>Tudo do Avançado +</li>
+                        <li>Sensores IoT para monitoramento</li>
+                        <li>Plantão 24/7 para emergências</li>
+                        <li>Gestão completa de infraestrutura</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Serviços Recorrentes</h2>
+                <div class="icon-box">
+                    <div class="icon">1</div>
+                    <div>
+                        <h2>Paisagismo Contínuo</h2>
+                        <p>Manutenção regular de áreas verdes, jardins verticais e espaços externos</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">2</div>
+                    <div>
+                        <h2>Pintura e Conservação</h2>
+                        <p>Programa de manutenção preventiva de pintura e fachadas</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">3</div>
+                    <div>
+                        <h2>Sistemas Elétricos e Hidráulicos</h2>
+                        <p>Verificações periódicas e manutenção preventiva</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">4</div>
+                    <div>
+                        <h2>Eficiência Energética</h2>
+                        <p>Monitoramento e otimização contínua de consumo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 7: SWOT Instituições Públicas -->
+    <div class="slide1">
+        <h1>Análise SWOT: Instituições Públicas</h1>
+        <div class="swot-grid">
+            <div class="swot-box strengths">
+                <h3 class="swot-title">Forças</h3>
+                <ul>
+                    <li>Experiência comprovada em projetos públicos</li>
+                    <li>Documentação e certificações completas</li>
+                    <li>Portfolio robusto de casos de sucesso</li>
+                    <li>Conhecimento em processos licitatórios</li>
+                    <li>Expertise em reformas de escolas e órgãos públicos</li>
+                </ul>
+            </div>
+            <div class="swot-box weaknesses">
+                <h3 class="swot-title">Fraquezas</h3>
+                <ul>
+                    <li>Dependência de ciclos orçamentários públicos</li>
+                    <li>Limitação de recursos para múltiplos projetos</li>
+                    <li>Processos burocráticos lentos</li>
+                    <li>Necessidade de capital de giro elevado</li>
+                    <li>Variabilidade de demanda</li>
+                </ul>
+            </div>
+            <div class="swot-box opportunities">
+                <h3 class="swot-title">Oportunidades</h3>
+                <ul>
+                    <li>Programa de modernização de escolas</li>
+                    <li>Demanda crescente por eficiência energética</li>
+                    <li>Editais de revitalização urbana</li>
+                    <li>Parcerias com concessionárias públicas</li>
+                    <li>Programas federais de infraestrutura</li>
+                </ul>
+            </div>
+            <div class="swot-box threats">
+                <h3 class="swot-title">Ameaças</h3>
+                <ul>
+                    <li>Construtoras maiores com preços predatórios</li>
+                    <li>Mudanças políticas e de prioridades</li>
+                    <li>Atrasos em pagamentos públicos</li>
+                    <li>Alterações em legislação de licitações</li>
+                    <li>Restrições orçamentárias governamentais</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 8: SWOT Gestoras de Condomínios -->
+    <div class="slide1">
+        <h1>Análise SWOT: Gestoras de Condomínios</h1>
+        <div class="swot-grid">
+            <div class="swot-box strengths">
+                <h3 class="swot-title">Forças</h3>
+                <ul>
+                    <li>Modelos flexíveis de contratação</li>
+                    <li>Equipe multidisciplinar completa</li>
+                    <li>Expertise em manutenção predial</li>
+                    <li>Plataforma digital para gestão transparente</li>
+                    <li>Capacidade de resposta rápida</li>
+                </ul>
+            </div>
+            <div class="swot-box weaknesses">
+                <h3 class="swot-title">Fraquezas</h3>
+                <ul>
+                    <li>Pouca penetração atual neste mercado</li>
+                    <li>Necessidade de adaptação do modelo de operação</li>
+                    <li>Network limitado com administradoras</li>
+                    <li>Estrutura de precificação em desenvolvimento</li>
+                    <li>Necessidade de mais cases específicos</li>
+                </ul>
+            </div>
+            <div class="swot-box opportunities">
+                <h3 class="swot-title">Oportunidades</h3>
+                <ul>
+                    <li>Mercado altamente fragmentado</li>
+                    <li>Demanda por soluções tecnológicas</li>
+                    <li>Crescente número de condomínios em SP</li>
+                    <li>Exigências legais de manutenção preventiva</li>
+                    <li>Parcerias com grandes administradoras</li>
+                </ul>
+            </div>
+            <div class="swot-box threats">
+                <h3 class="swot-title">Ameaças</h3>
+                <ul>
+                    <li>Concorrência de preços baixos</li>
+                    <li>Empresas especializadas estabelecidas</li>
+                    <li>Resistência a novos fornecedores</li>
+                    <li>Ciclos longos de aprovação em assembleias</li>
+                    <li>Pressão de síndicos por redução de custos</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 9: SWOT Empresas com Múltiplas Instalações -->
+    <div class="slide1">
+        <h1>Análise SWOT: Empresas Capilarizadas</h1>
+        <div class="swot-grid">
+            <div class="swot-box strengths">
+                <h3 class="swot-title">Forças</h3>
+                <ul>
+                    <li>Capacidade de padronização de serviços</li>
+                    <li>Plataforma digital para gestão centralizada</li>
+                    <li>Experiência em projetos complexos</li>
+                    <li>Equipe própria multidisciplinar</li>
+                    <li>Soluções de eficiência energética</li>
+                </ul>
+            </div>
+            <div class="swot-box weaknesses">
+                <h3 class="swot-title">Fraquezas</h3>
+                <ul>
+                    <li>Cobertura geográfica limitada</li>
+                    <li>Processos de escalabilidade em desenvolvimento</li>
+                    <li>Pouca tradição em grandes contas corporativas</li>
+                    <li>Plataforma de gestão em implementação</li>
+                    <li>Necessidade de certificações específicas</li>
+                </ul>
+            </div>
+            <div class="swot-box opportunities">
+                <h3 class="swot-title">Oportunidades</h3>
+                <ul>
+                    <li>Terceirização crescente de facility management</li>
+                    <li>Demanda por soluções integradas</li>
+                    <li>Tendência de redução de fornecedores</li>
+                    <li>Foco em sustentabilidade corporativa</li>
+                    <li>Expansão de redes varejistas e franquias</li>
+                </ul>
+            </div>
+            <div class="swot-box threats">
+                <h3 class="swot-title">Ameaças</h3>
+                <ul>
+                    <li>Grandes empresas de facility management</li>
+                    <li>Centralização de decisões em matrizes</li>
+                    <li>Contratos de longo prazo existentes</li>
+                    <li>Demanda por presença nacional</li>
+                    <li>Processos de homologação complexos</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Análise de Concorrência -->
+    <div class="slide2">
+        <h1>Análise de Concorrência</h1>
+        <div class="two-column">
+            <div class="column">
+                <h2>Instituições Públicas</h2>
+                <div class="segment-card">
+                    <h3 class="segment-title">Principais Concorrentes</h3>
+                    <ul class="feature-list">
+                        <li>Construtoras tradicionais de médio porte</li>
+                        <li>Empresas especializadas em licitações</li>
+                        <li>Empreiteiras com foco em obras públicas</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <h3 class="segment-title">Nosso Diferencial</h3>
+                    <ul class="feature-list">
+                        <li>Expertise comprovada em instituições educacionais</li>
+                        <li>Abordagem tecnológica para acompanhamento</li>
+                        <li>Equipe especializada em editais e licitações</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Gestoras de Condomínios</h2>
+                <div class="segment-card">
+                    <h3 class="segment-title">Principais Concorrentes</h3>
+                    <ul class="feature-list">
+                        <li>Empresas especializadas em manutenção predial</li>
+                        <li>Prestadores de serviços fragmentados</li>
+                        <li>Equipes internas das administradoras</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <h3 class="segment-title">Nosso Diferencial</h3>
+                    <ul class="feature-list">
+                        <li>Solução integrada multidisciplinar</li>
+                        <li>Plataforma digital para síndicos e gestores</li>
+                        <li>Contratos flexíveis pay-per-use</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h2>Empresas com Múltiplas Instalações</h2>
+        <div class="two-column">
+            <div class="column">
+                <div class="segment-card">
+                    <h3 class="segment-title">Principais Concorrentes</h3>
+                    <ul class="feature-list">
+                        <li>Grandes empresas de facility management</li>
+                        <li>Redes nacionais de manutenção</li>
+                        <li>Empresas de gestão predial corporativa</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div class="segment-card">
+                    <h3 class="segment-title">Nosso Diferencial</h3>
+                    <ul class="feature-list">
+                        <li>Agilidade e adaptabilidade</li>
+                        <li>Foco em modernização e eficiência</li>
+                        <li>Integração de tecnologia nos processos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Preparação para Licitações -->
+
+    <div class="slide">
+        <h1>Preparação estruturada para licitações</h1>
+        <div class="two-column">
+            <div class="column">
+                <div class="icon-box">
+                    <div class="icon">1</div>
+                    <div>
+                        <h2>Sistema de monitoramento</h2>
+                        <p>Plataforma automatizada para rastreamento de editais relevantes em tempo real</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">2</div>
+                    <div>
+                        <h2>Documentação pré-validada</h2>
+                        <p>Biblioteca digital de documentos e certificações sempre atualizados</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">3</div>
+                    <div>
+                        <h2>Análise preditiva</h2>
+                        <p>IA para avaliação de probabilidade de sucesso e precificação competitiva</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="highlight-box">
+                    <p class="data-point">40+</p>
+                    <p class="data-label">CNAEs ativos e documentados</p>
+                </div>
+                <div class="highlight-box">
+                    <p class="data-point">100%</p>
+                    <p class="data-label">compliance em documentação regulatória</p>
+                </div>
+                <div class="highlight-box">
+                    <p class="data-point">24h</p>
+                    <p class="data-label">prazo máximo para preparação de propostas</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 12: Plataforma Digital -->
+    <div class="slide1">
+        <h1>Plataforma digital integrada</h1>
+        <div class="two-column">
+            <div class="column">
+                <h2>Funcionalidades para clientes</h2>
+                <div class="icon-box">
+                    <div class="icon">A</div>
+                    <div>
+                        <h2>Dashboard de acompanhamento</h2>
+                        <p>Visão em tempo real do andamento de projetos e manutenções</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">B</div>
+                    <div>
+                        <h2>Orçamentos e aprovações</h2>
+                        <p>Fluxo digital para aprovação de orçamentos e aditivos</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">C</div>
+                    <div>
+                        <h2>Relatórios automatizados</h2>
+                        <p>Indicadores de performance, economia e sustentabilidade</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Funcionalidades operacionais</h2>
+                <div class="icon-box">
+                    <div class="icon">1</div>
+                    <div>
+                        <h2>Orçamentos automáticos</h2>
+                        <p>Sistema de precificação dinâmica com aprovação digital e escalonada</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">2</div>
+                    <div>
+                        <h2>QR codes de atendimento</h2>
+                        <p>Pontos de solicitação distribuídos nas instalações para demandas de manutenção</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">3</div>
+                    <div>
+                        <h2>Integração com IoT</h2>
+                        <p>Backend para sensores de monitoramento preventivo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 13: Roadmap do Aplicativo -->
+    <div class="slide1">
+        <h1>Roadmap do aplicativo de gestão</h1>
+        <div class="roadmap">
+            <div class="roadmap-line"></div>
+            <div class="roadmap-items">
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-title">Q2 2025</div>
+                    <div class="roadmap-desc">MVP com módulo básico de orçamentos e acompanhamento</div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-title">Q3 2025</div>
+                    <div class="roadmap-desc">Dashboard cliente e gestão de equipes</div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-title">Q4 2025</div>
+                    <div class="roadmap-desc">Módulo financeiro e integração com NF-e</div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-title">Q1 2026</div>
+                    <div class="roadmap-desc">Integração IoT e manutenção preditiva</div>
+                </div>
+            </div>
+        </div>
+        <div class="two-column" style="margin-top: 80px;">
+            <div class="column">
+                <h2>Desenvolvimento Lean</h2>
+                <ul>
+                    <li>Desenvolvimento iterativo com feedback contínuo</li>
+                    <li>Priorização baseada em retorno sobre investimento</li>
+                    <li>Testes com clientes-chave em cada etapa</li>
+                    <li>Arquitetura escalável e API-first</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Integração Tecnológica</h2>
+                <ul>
+                    <li>IA para análise preditiva de manutenção</li>
+                    <li>Sensores IoT para monitoramento em tempo real</li>
+                    <li>BIM (Building Information Modeling)</li>
+                    <li>Mobile-first para equipes em campo</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 13.1: MVP do Aplicativo de Gestão -->
+<div class="slide1">
+    <h1>MVP do Aplicativo de Gestão - Q2 2025</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Motor de orçamentos inteligentes</h2>
+                    <p>Precificação algorítmica que responde em segundos, não em dias</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Fluxo de aprovação digital</h2>
+                    <p>Redução de 80% no tempo de aprovação pelo cliente</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>QR codes em pontos estratégicos</h2>
+                    <p>Transforme qualquer local em um ponto de solicitação digital</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Métricas de Product-Market Fit</h2>
+            <div class="highlight-box">
+                <p class="data-point">&lt; 1h</p>
+                <p class="data-label">Geração de orçamentos (vs. atual 24h)</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">35%+</p>
+                <p class="data-label">Taxa de conversão de orçamentos</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">70%+</p>
+                <p class="data-label">Adoção pelos clientes atuais nos primeiros 90 dias</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+    <!-- Slide 13.2: Arquitetura Técnica do MVP -->
+<div class="slide">
+    <h1>Arquitetura Técnica do MVP</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Serverless First</h2>
+                    <p>AWS Lambda/Firebase para escalabilidade instantânea sem infraestrutura própria</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Design API-first</h2>
+                    <p>Todas as features são disponibilizadas como endpoints RESTful documentados</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Web + PWA</h2>
+                    <p>Aplicação web responsiva com funcionalidades offline para uso em campo</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Stack operacional O2O</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>QR Bridge</h2>
+                    <p>Ponte digital entre ambientes físicos e plataforma digital</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Notificações multi-canal</h2>
+                    <p>Push, email, SMS e WhatsApp integrados para comunicação omnichannel</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Geolocalização inteligente</h2>
+                    <p>Alocação de técnicos com base em proximidade e expertise</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+    <!-- Slide 13.3: Backlog Priorizado - Growth Phase -->
+<div class="slide1">
+    <h1>Backlog Priorizado - Growth Phase</h1>
+    <div class="roadmap">
+        <div class="roadmap-line"></div>
+        <div class="roadmap-items">
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">Q3 2025</div>
+                <div class="roadmap-desc">Dashboard analítico e sistema avançado de QR codes adaptativos</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">Q4 2025</div>
+                <div class="roadmap-desc">Módulo financeiro completo e marketplace de fornecedores</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">Q1 2026</div>
+                <div class="roadmap-desc">Integração IoT e machine learning para manutenção preditiva</div>
+            </div>
+        </div>
+    </div>
+    <div class="two-column" style="margin-top: 60px;">
+        <div class="column">
+            <h2>Growth Features - O2O</h2>
+            <ul>
+                <li>QR codes contextuais com histórico por equipamento</li>
+                <li>Detecção de anomalias por padrões de solicitação</li>
+                <li>Marketplace de técnicos parceiros em modelo Uber-like</li>
+                <li>Integração com sistemas prediais existentes (BMS/BAS)</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Network Effects</h2>
+            <ul>
+                <li>Dados agregados para benchmarking entre propriedades</li>
+                <li>Marketplace de fornecedores com ratings transparentes</li>
+                <li>Comunidade técnica para resolução colaborativa</li>
+                <li>Insights de performance por tipo de edificação</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+    <!-- Slide 13.4: Backlog de Inovação - Scale Phase -->
+<div class="slide2">
+    <h1>Backlog de Inovação - Scale Phase</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Digital Twins</h2>
+                    <p>Modelagem BIM + IoT para representação digital completa de edificações</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Realidade Aumentada</h2>
+                    <p>Visualização de sistemas ocultos e instruções visuais para técnicos</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Blockchain para contratos</h2>
+                    <p>Smart contracts para autoverificação de SLAs e pagamentos automáticos</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Métricas de Escala</h2>
+            <div class="highlight-box">
+                <p class="data-point">-40%</p>
+                <p class="data-label">Redução em custos operacionais via automação</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">+60%</p>
+                <p class="data-label">Aumento em eficiência energética via IA</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">3.0x</p>
+                <p class="data-label">Multiplicador de receita por cliente existente</p>
+            </div>
+        </div>
+    </div>
+    <div class="quote">
+        "Não estamos apenas digitalizando processos existentes - estamos reinventando a gestão de infraestrutura física com tecnologias que conectam perfeitamente o mundo online ao offline."
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+    <!-- Slide 13.5: Validação em Ciclos Rápidos -->
+<div class="slide2">
+    <h1>Validação em Ciclos Rápidos</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>Ciclo de Desenvolvimento</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Sprints de 2 semanas</h2>
+                    <p>Entregáveis incrementais com valor mensurável</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Beta-testers prioritários</h2>
+                    <p>5 clientes premium como early adopters com acesso VIP</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Integração contínua</h2>
+                    <p>Deploys diários com testes A/B em features críticas</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Métricas de Validação</h2>
+            <div class="highlight-box">
+                <p class="data-point">NPS 70+</p>
+                <p class="data-label">Meta para cada feature lançada</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">< 30min</p>
+                <p class="data-label">Tempo médio de adoção de novas features</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">80%+</p>
+                <p class="data-label">Taxa de uso semanal pelos usuários</p>
+            </div>
+        </div>
+    </div>
+    <div class="quote">
+        "Construímos como uma startup verdadeiramente enxuta: cada sprint entrega valor mensurável, cada feature responde a uma dor real, cada decisão é baseada em dados."
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+    <!-- Slide 14: Métricas de Sucesso -->
+    <div class="slide">
+        <h1>Métricas de sucesso e KPIs</h1>
+        <div class="metrics-row">
+            <div class="metric-box">
+                <p class="big-number">25%</p>
+                <h3>Taxa de conversão de propostas</h3>
+                <p>Meta para licitações e propostas privadas</p>
+            </div>
+            <div class="metric-box">
+                <p class="big-number">50%</p>
+                <h3>Receita recorrente</h3>
+                <p>Contratos de manutenção e serviços contínuos</p>
+            </div>
+            <div class="metric-box">
+                <p class="big-number">70+</p>
+                <h3>NPS (Net Promoter Score)</h3>
+                <p>Índice de satisfação e recomendação</p>
+            </div>
+        </div>
+        <div class="two-column" style="margin-top: 40px;">
+            <div class="column">
+                <h2>Métricas Operacionais</h2>
+                <ul>
+                    <li>Tempo médio de resposta a chamados: < 3h</li>
+                    <li>Prazo médio de entrega: -15% vs. mercado</li>
+                    <li>Taxa de retrabalho: < 5%</li>
+                    <li>Eficiência energética implementada: > 20%</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Métricas de Crescimento</h2>
+                <ul>
+                    <li>3-5 novos clientes por mês</li>
+                    <li>Aumento de 20% no ticket médio</li>
+                    <li>Expansão para 3 novos segmentos até 2026</li>
+                    <li>Crescimento anual de 40% em receita</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 15: Plano de Implementação -->
+    <div class="slide12">
+        <h1>Plano de implementação</h1>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-title">Preparação</div>
+                <div class="timeline-desc">3 meses<br>Estruturação interna, plataforma digital, materiais</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-title">Lançamento</div>
+                <div class="timeline-desc">2 meses<br>Campanha de divulgação, primeiros contatos comerciais</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-title">Tração</div>
+                <div class="timeline-desc">6 meses<br>Primeiros contratos nos novos segmentos, ajustes</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-title">Escalabilidade</div>
+                <div class="timeline-desc">12 meses<br>Ampliação de equipes, novos territórios, automações</div>
+            </div>
+        </div>
+        <div class="two-column" style="margin-top: 60px;">
+            <div class="column">
+                <h2>Processos Prioritários</h2>
+                <div class="highlight-box">
+                    <p class="data-point">Estruturação</p>
+                    <p class="data-label">Automatização de fluxos operacionais</p>
+                </div>
+                <div class="highlight-box">
+                    <p class="data-point">Qualificação</p>
+                    <p class="data-label">Certificações e habilitações técnicas estratégicas</p>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Desenvolvimento Comercial</h2>
+                <div class="highlight-box">
+                    <p class="data-point">Prospecção</p>
+                    <p class="data-label">Abordagem personalizada por segmento</p>
+                </div>
+                <div class="highlight-box">
+                    <p class="data-point">Parcerias</p>
+                    <p class="data-label">Alianças estratégicas com fornecedores e clientes</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 16: Abordagem de Startup -->
+    <div class="slide12">
+        <h1>Abordagem inspirada em startups</h1>
+        <div class="two-column">
+            <div class="column">
+                <div class="icon-box">
+                    <div class="icon">1</div>
+                    <div>
+                        <h2>Product-Market Fit</h2>
+                        <p>Validação contínua das ofertas com feedback direto dos clientes</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">2</div>
+                    <div>
+                        <h2>Metodologia lean</h2>
+                        <p>Iterações rápidas e foco em valor mensurável para o cliente</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">3</div>
+                    <div>
+                        <h2>Growth Hacking</h2>
+                        <p>Estratégias de aquisição de baixo custo e alta conversão</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="icon-box">
+                    <div class="icon">4</div>
+                    <div>
+                        <h2>Escala via automação</h2>
+                        <p>Processos manuais convertidos em fluxos digitais automatizados</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">5</div>
+                    <div>
+                        <h2>Medição contínua</h2>
+                        <p>Dashboards de controle com KPIs em tempo real para gestão ágil</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">6</div>
+                    <div>
+                        <h2>Cultura de inovação</h2>
+                        <p>Ambiente organizacional que premia experimentação, aprendizado e resultado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quote">
+            "Não estamos reinventando a construção civil. Estamos trazendo a mentalidade digital das startups para revolucionar como a infraestrutura é mantida e gerenciada."
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
+
+    <!-- Slide 18: Conclusão -->
+    <div class="slide">
+        <h1>Próximos passos</h1>
+        <div class="two-column">
+            <div class="column">
+                <div class="icon-box">
+                    <div class="icon">1</div>
+                    <div>
+                        <h2>Desenvolvimento da plataforma digital</h2>
+                        <p>Implementação do MVP para gestão de projetos e manutenção</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">2</div>
+                    <div>
+                        <h2>Estruturação da oferta modular</h2>
+                        <p>Definição de pacotes e precificação para cada segmento</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">3</div>
+                    <div>
+                        <h2>Implementação do funil de aquisição</h2>
+                        <p>Estratégias específicas para cada segmento-alvo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="icon-box">
+                    <div class="icon">4</div>
+                    <div>
+                        <h2>Desenvolvimento de casos piloto</h2>
+                        <p>Projetos demonstrativos em cada novo segmento</p>
+                    </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon">5</div>
+                    <div>
+                        <h2>Monitoramento e ajuste da estratégia</h2>
+                        <p>Revisão trimestral de KPIs e adaptação contínua</p>
+                    </div>
+                </div>
+                <div class="quote">
+                    "Engenharia inteligente com execução impecável: nossa jornada de transformação digital para infraestruturas mais eficientes e duradouras."
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>DL Projetos e Construções</div>
+            <div>Confidencial</div>
+        </div>
+    </div>
